@@ -15,21 +15,23 @@
        #Is lowest +1 in the input array?
                #Yes - add 1 to lowest and try again 
                #No - return lowest as the result
-
-
-
 def main():
+    
     input = [3,4,-1,1]
     lowest = 0
 
     def lowest_check(number, lowest):
         if number <= 0:
-            pass
+            return lowest
         else:
             if number > lowest:
-                lowest = number
+                if lowest == 0:
+                    lowest = number
+                    return lowest
+                else:
+                    return lowest
             else:
-                pass
+                return lowest
     
     def decision_check(lowest_number):
     
@@ -40,7 +42,8 @@ def main():
             return lowest_number
     
     for number in input:
-        lowest_check(number,lowest)
+        new_low = lowest_check(number,lowest)
+        lowest = new_low
         
     answer = decision_check(lowest)
     print(answer)
