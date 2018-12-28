@@ -8,15 +8,22 @@
 
 #Follow-up: what if you can't use division?
 
-#create new list for output
-#create a holder variable to i[0]
-#take out i[0] from the original array and put in holder
-#Do the multiplication and put result in new list
-#Add back in i[0] but to end of oringal list
-#Do again for length of list
+#Plan
+#1 - Set up loop for each number in the list whereby it:
+        #a)removes the number and puts in the holder
+        #b) replaces the number into the list at the end at the end of the
+        #    loop
 
-input_list = [1,2,3,4,5]
-#input_list = [1,2,3]
+#2 - While the number is out, use list comprehension to get a product of all
+        #numbers in the array
+        
+#3 - while the number is out, add the product to a new array which will become
+        #the answer
+
+#----
+
+#input_list = [1,2,3,4,5]
+input_list = [1,2,3]
 
 i_holder = ''
 output_list = []
@@ -26,12 +33,11 @@ list_num = 0
 for numbers in input_list:
   i_holder = input_list[0]
   input_list.pop(0)
-  for numbers_left in input_list:
-    try:
-      sum_list = sum_list + (input_list[list_num] * input_list[list_num+1])
-      list_num = list_num + 1
-      output_list.append(sum_list)
-    except:
-      break
+    
+  result = 1
+  for x in input_list:
+      result *= x
+  output_list.append(result)  
+  
   input_list.append(i_holder)
 print(output_list)
